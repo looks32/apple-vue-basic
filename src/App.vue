@@ -1,14 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <div>
-    <h4 :style="스타일">원룸</h4>
-    <p>{{price1}} 만원</p>
-    <!-- asds -->
-  </div>
-  <div>
-    <h4>원룸</h4>
-    <p>{{price2}} 만원</p>
+  <div v-for="(a,i) in products" :key="i">
+    <h4>{{a}}</h4>
+    <p>가격은 아무거나</p>
   </div>
 </template>
 
@@ -19,9 +13,7 @@ export default {
   name: 'App',
   data(){
     return {
-      price1 : 60,
-      price2 : 50,
-      스타일 : 'color : blue'
+      products : ['역삼동원룸', '천호동원룸', '마포구원룸']
      }
   },
   components: {
@@ -37,6 +29,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
