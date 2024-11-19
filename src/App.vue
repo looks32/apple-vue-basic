@@ -15,25 +15,25 @@
   </div>-->
 
   <div>
+    <img src="./assets/room0.jpg" class="room">
     <h4 @click="모달창열렸니 = true">{{products[0]}}</h4>
     <p>50만원</p>
     <button @click="신고수[0]++">허위매물 신고</button>
     <span>신고수 : {{신고수[0]}}</span>
-    <img src="./assets/room0.jpg" class="room">
   </div>
   <div>
+    <img src="./assets/room1.jpg" class="room">
     <h4>{{products[1]}}</h4>
     <p>50만원</p>
     <button @click="신고수[1]++">허위매물 신고</button>
     <span>신고수 : {{신고수[1]}}</span>
-    <img src="./assets/room1.jpg" class="room">
   </div>
   <div>
+    <img src="./assets/room2.jpg" class="room">
     <h4>{{products[2]}}</h4>
     <p>50만원</p>
     <button @click="신고수[2]++">허위매물 신고</button>
     <span>신고수 : {{신고수[2]}}</span>
-    <img src="./assets/room2.jpg" class="room">
   </div>
 
   <!-- <div v-for="(a,i) in products" :key="i">
@@ -43,17 +43,27 @@
     <span>신고수 : {{신고수[i]}}</span>
   </div> -->
 
+
+  <div v-for="(room,i) in 원룸들" :key="i">
+    <img :src="room.image" class="room">
+    <h4>{{room.title}}</h4>
+    <p>가격 : {{room.price}}</p>
+    <p>가격 : {{room.content}}</p>
+  </div>
+
  
   
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
+import data from './assets/oneroom.js';
 
 export default {
   name: 'App',
   data(){
     return {
+      원룸들 : data,
       모달창열렸니 : false,
       신고수 : [0, 0, 0],
       products : ['역삼동원룸', '천호동원룸', '마포구원룸']
